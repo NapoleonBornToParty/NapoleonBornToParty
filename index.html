@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="js/js.js"></script>
+</head>
+<body>
+<div class="main">
+
+        <div class="row">
+            <nav class="navigation nav-down">
+                <div class="container">
+                <ul class="menu">
+                    <li class="menu__item"><a href="#" class="menu__link">Этапы работы</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">Готоовые проекты</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">Цены</a></li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+    <div class="container">
+        <div class="block block_banner">
+            <h1 class="block__title">
+                Презентация <br>под ключ <br> для всех стран <br> СНГ.
+            </h1>
+        </div>
+        <h2 class="title__main">
+            Этапы работы.
+        </h2>
+    </div>
+        <div class="block block_step">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
+                    <ul class="list block_step__list">
+                        <li class="list__item">Связываемся, согласовываем детали. <br>
+                            Получаем весь необходимый материал.</li>
+                        <li class="list__item">Делаем оценку работы и ее сроки.<br>
+                            Производиться оплата заказа.</li>
+                        <li class="list__item">Получаете готовую презентацию<br>
+                            в согласованные сроки.</li>
+                    </ul>
+                    <button class="buttonBlue block_step__buttonBlue">Заказать презентацию</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    <div class="container">
+        <h2 class="title__main">
+            Готовые проекты.
+        </h2>
+        <div class="block_slider">
+            <div class="slider">
+                <div class="slide slide1"></div>
+                <div class="slide slide2"></div>
+                <div class="slide slide3"></div>
+                <div class="slide slide4"></div>
+                <div class="slide slide6"></div>
+                <div class="slide slide7"></div>
+                <div class="slide slide8"></div>
+            </div>
+        </div>
+        <div class="block_price">
+            <h2 class="title__main">
+                Цены.
+            </h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="list block_price__list">
+        <p class="list__item">      Каждая презентация индивидуальна. <br>
+          Все зависит от объёма работы,<br>
+          поставленых задач и сложности.</p>
+                    <p class="list__item">Вы можете связатся с нами<br>
+                        и мы вам посчитаем стоимость<br>
+                        вашей презентации.</p>
+                    <p class="list__item">Оплату можно осуществить на:<br>
+            Карту ПриватБанка, Яндекс Деньги<br>
+            или QIWI.</p>
+                        <div class="block_price__image"></div>
+                    </div>
+                    </div>
+                <div class="col-md-6">
+                    <div class="block_order">
+                    <button class="buttonBlue block_order__buttonBlue">Заказать презентацию</button>
+                    <br>
+                        <div class="block_contact">
+                    <a class="block_contact__link" href="tel:+380938209686">+38 093 820 96 86</a>
+                    <br>
+                    <a class="block_contact__link" href="mailto:svetlichnayadesign@ya.ru?subject=Presentation">svetlichnayadesign@ya.ru</a>
+                        </div>
+                      </div>
+                      </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+
+    $( document ).ready(function() {
+// Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('.navigation').outerHeight();
+
+        $(window).scroll(function(event){
+            didScroll = true;
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if(Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight){
+                // Scroll Down
+                $('.navigation').removeClass('nav-down nav-zero').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if(st + $(window).height() < $(document).height()) {
+                    $('.navigation').removeClass('nav-up').addClass('nav-down nav-zero');
+                    if($('body').scrollTop() == 0){
+                        $('.navigation').removeClass('nav-zero');
+                    }
+                }
+
+            }
+
+            lastScrollTop = st;
+        }
+    });
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

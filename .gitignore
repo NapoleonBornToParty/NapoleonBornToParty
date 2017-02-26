@@ -1,0 +1,6 @@
+$ cat .gitignore
+*node_modules/
+*package.json
+*gulpfile.js
+*bower.json
+*sass/
